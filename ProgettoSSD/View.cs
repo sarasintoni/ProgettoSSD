@@ -41,6 +41,11 @@ namespace ProgettoSSD
         {
             C.readViaFactory(rbSQLite.Checked, clientID.Text);
         }
+
+        private void btnReadEF_Click(object sender, EventArgs e)
+        {
+            C.readViaEF(rbSQLite.Checked, clientID.Text);
+        }
     }
 
 }

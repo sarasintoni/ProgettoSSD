@@ -39,12 +39,13 @@
             this.clientID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReadFactory = new System.Windows.Forms.Button();
+            this.btnReadEF = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(11, 11);
+            this.btnStart.Location = new System.Drawing.Point(11, 9);
             this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(106, 23);
@@ -71,10 +72,10 @@
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(11, 62);
+            this.btnRead.Location = new System.Drawing.Point(11, 60);
             this.btnRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(106, 19);
+            this.btnRead.Size = new System.Drawing.Size(106, 23);
             this.btnRead.TabIndex = 2;
             this.btnRead.Text = "Read View";
             this.btnRead.UseVisualStyleBackColor = true;
@@ -133,19 +134,30 @@
             // 
             // btnReadFactory
             // 
-            this.btnReadFactory.Location = new System.Drawing.Point(11, 86);
+            this.btnReadFactory.Location = new System.Drawing.Point(11, 88);
             this.btnReadFactory.Name = "btnReadFactory";
-            this.btnReadFactory.Size = new System.Drawing.Size(105, 19);
+            this.btnReadFactory.Size = new System.Drawing.Size(105, 23);
             this.btnReadFactory.TabIndex = 8;
             this.btnReadFactory.Text = "Read via Factory";
             this.btnReadFactory.UseVisualStyleBackColor = true;
             this.btnReadFactory.Click += new System.EventHandler(this.btnReadFactory_Click);
+            // 
+            // btnReadEF
+            // 
+            this.btnReadEF.Location = new System.Drawing.Point(11, 117);
+            this.btnReadEF.Name = "btnReadEF";
+            this.btnReadEF.Size = new System.Drawing.Size(103, 23);
+            this.btnReadEF.TabIndex = 9;
+            this.btnReadEF.Text = "Read via EF";
+            this.btnReadEF.UseVisualStyleBackColor = true;
+            this.btnReadEF.Click += new System.EventHandler(this.btnReadEF_Click);
             // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 360);
+            this.Controls.Add(this.btnReadEF);
             this.Controls.Add(this.btnReadFactory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.clientID);
@@ -175,6 +187,7 @@
         private System.Windows.Forms.TextBox clientID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnReadFactory;
+        private System.Windows.Forms.Button btnReadEF;
     }
 }
 

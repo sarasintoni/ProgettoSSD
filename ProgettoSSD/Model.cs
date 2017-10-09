@@ -112,5 +112,31 @@ namespace ProgettoSSD
                 }
             }
         }
+
+
+        //il metodo ritorna al controller una lista di ordini
+        //è il controller che si occupa di cambiargli formato
+        public List<ordini> readViaEF(int idCliente)
+        {
+            string queryText = "SELECT * from ordini where idcliente = " + idCliente;
+            //testDbEntities context = new testDbEntities();
+            List<ordini> ordList = new List<ordini>();
+            /*foreach (ordini o in context.ordini)
+            {
+                if (o.idcliente.Equals(idCliente))
+                    ordList.Add(o);
+
+            }*/
+
+            using (var context = new testDbEntities())
+            {
+                ordList = context.ordini.SqlQuery(queryText).ToList();
+            }
+
+            return ordList;
+
+        }
+
+
     }
 }

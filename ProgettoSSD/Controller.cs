@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using Newtonsoft.Json;
 
 namespace ProgettoSSD
 {
@@ -61,6 +62,20 @@ namespace ProgettoSSD
             }
 
             W.readViaFactory(connString, fact, idCliente);
+        }
+
+        public void readViaEF(bool isSQLLite, string idCliente)
+        {
+            if (isSQLLite)
+            {
+                FlushText(this, "Database not supported");
+            }
+            else
+            {
+                List<ordini> ordList = W.readViaEF(Convert.ToInt32(idCliente));
+                string jData = JsonConvert.SerializeObject(ordList);
+                FlushText(this, jData);
+            }
         }
     }
 }

@@ -77,5 +77,19 @@ namespace ProgettoSSD
                 FlushText(this, jData);
             }
         }
+
+        public void previsione(bool isSQLLite, string id)
+        {
+            if (!isSQLLite)
+            {
+                FlushText(this, "Database not supported");
+            }
+            else
+            {
+                string connString = ConfigurationManager.ConnectionStrings["SQLiteDataConn"].ConnectionString;
+                string fact = "System.Data.SQLite";
+                W.previsione(connString, fact, id);
+            }
+        }
     }
 }

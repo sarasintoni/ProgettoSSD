@@ -137,6 +137,43 @@ namespace ProgettoSSD
 
         }
 
+        public void previsione(string connString, string factory, string idserie)
+        {
+            DbProviderFactory dbFactory = DbProviderFactories.GetFactory(factory);
+            using (DbConnection conn = dbFactory.CreateConnection())
+            {
+                try
+                {
+                    conn.ConnectionString = connString;
+                    conn.Open();
+                    DbDataAdapter dbAdapter = dbFactory.CreateDataAdapter();
+                    DbCommand dbCommand = conn.CreateCommand();
 
+                    //query parametrizzata -> così l'utente non può fare sql injection
+                    string queryText = "SELECT idserie, periodo, val from histordini where idserie =  @id";
+                    dbCommand.CommandText = queryText;
+
+                    IDbDataParameter param = dbCommand.CreateParameter();
+                    param.DbType = DbType.Int32;
+                    param.ParameterName = "@id";
+                    param.Value = Int32.Parse(idserie);
+                    dbCommand.Parameters.Add(param);
+                    using (IDataReader reader = dbCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                            FlushText(this, "ID = " + reader["idserie"] + ", PERIODO = " + reader["periodo"] + ", VAL = " + reader["val"]);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    FlushText(this, "Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (conn.State == ConnectionState.Open) conn.Close();
+                }
+            }
+        }
     }
 }

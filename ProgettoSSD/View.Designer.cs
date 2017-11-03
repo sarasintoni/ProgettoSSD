@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnReadFactory = new System.Windows.Forms.Button();
             this.btnReadEF = new System.Windows.Forms.Button();
+            this.btnPrevisione = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,12 +85,10 @@
             // rbSQLite
             // 
             this.rbSQLite.AutoSize = true;
-            this.rbSQLite.Checked = true;
             this.rbSQLite.Location = new System.Drawing.Point(10, 19);
             this.rbSQLite.Name = "rbSQLite";
             this.rbSQLite.Size = new System.Drawing.Size(57, 17);
             this.rbSQLite.TabIndex = 3;
-            this.rbSQLite.TabStop = true;
             this.rbSQLite.Text = "SQLite";
             this.rbSQLite.UseVisualStyleBackColor = true;
             // 
@@ -152,11 +151,22 @@
             this.btnReadEF.UseVisualStyleBackColor = true;
             this.btnReadEF.Click += new System.EventHandler(this.btnReadEF_Click);
             // 
+            // btnPrevisione
+            // 
+            this.btnPrevisione.Location = new System.Drawing.Point(11, 251);
+            this.btnPrevisione.Name = "btnPrevisione";
+            this.btnPrevisione.Size = new System.Drawing.Size(103, 23);
+            this.btnPrevisione.TabIndex = 10;
+            this.btnPrevisione.Text = "Previsione dati";
+            this.btnPrevisione.UseVisualStyleBackColor = true;
+            this.btnPrevisione.Click += new System.EventHandler(this.btnPrevisione_Click);
+            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 360);
+            this.Controls.Add(this.btnPrevisione);
             this.Controls.Add(this.btnReadEF);
             this.Controls.Add(this.btnReadFactory);
             this.Controls.Add(this.label1);
@@ -188,6 +198,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnReadFactory;
         private System.Windows.Forms.Button btnReadEF;
+        private System.Windows.Forms.Button btnPrevisione;
     }
 }
 
